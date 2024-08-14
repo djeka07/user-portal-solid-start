@@ -1,0 +1,20 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://solid.westeurope.cloudapp.azure.com/login</loc>
+    <priority>0.9</priority>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://solid.westeurope.cloudapp.azure.com/register</loc>
+    <priority>0.9</priority>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://solid.westeurope.cloudapp.azure.com/reset</loc>
+    <priority>0.9</priority>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+</urlset>

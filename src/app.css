@@ -1,0 +1,91 @@
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  background-color: rgb(53, 64, 82);
+}
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-height: 100vh;
+}
+
+body {
+  font-family: 'Campton', arial;
+  font-weight: 400;
+  font-size: 1rem;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: auto;
+  padding: 0px;
+  margin: 0px;
+  background-image: url("https://solid-static.azureedge.net/static/images/background.webp");
+}
+
+main {
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+
+p {
+  margin: 0 0 0.3rem 0;
+  color: #f87171;
+  flex-basis: 100%;
+}
+
+ul {
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.loading-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #354052;
+}
+
+@font-face {
+  font-family: 'Campton';
+  src: url('https://solid-static.azureedge.net/static/fonts/subset-Campton-Book.woff2') format('woff2'),
+    url('https://solid-static.azureedge.net/static/fonts/subset-Campton-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Campton';
+  src: url('https://solid-static.azureedge.net/static/fonts/subset-Campton-Light.woff2') format('woff2'),
+    url('https://solid-static.azureedge.net/static/fonts/subset-Campton-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Campton';
+  src: url('https://solid-static.azureedge.net/static/fonts/subset-Campton-Bold.woff2') format('woff2'),
+    url('https://solid-static.azureedge.net/static/fonts/subset-Campton-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+

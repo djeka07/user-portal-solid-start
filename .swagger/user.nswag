@@ -1,0 +1,36 @@
+{
+  "runtime": "Net60",
+  "documentGenerator": {
+    "fromDocument": {
+      "url": "http://localhost:3001/swagger-json",
+      "output": null
+    }
+  },
+  "codeGenerators": {
+    "openApiToTypeScriptClient": {
+     "typescriptVersion": 5.3,
+      "typeStyle": "Interface",
+      "generateClientClasses": true,
+      "generateClientInterfaces": true,
+      "generateOptionalParameters": true,
+      "promiseType": "Promise",
+      "exportTypes": true,
+      "template": "Fetch",
+      "httpClass": "Http",
+      "injectionTokenType": "OpaqueToken",
+      "generateClientClasses": false,
+      "generateOptionalParameters": true,
+      "generateConstructorInterface": true,
+      "output": "../src/user/models/services/generated/user.client.ts",
+      "serviceHost": ".",
+      "configurationClass": "AuthClient",
+      "clientBaseClass": "AccessTokenAuthClient",
+      "markOptionalProperties": true,
+      "generateConstructorInterface": true,
+      "extensionCode": "fetch-extensions.ts",
+      "useTransformOptionsMethod": true,
+      "importRequiredTypes": true,
+      "useGetBaseUrlMethod": true,
+    }
+  }
+}

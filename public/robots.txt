@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://solid.westeurope.cloudapp.azure.com/sitemap.xml

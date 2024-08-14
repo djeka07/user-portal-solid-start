@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "ESNext",
+    "types": ["vite-plugin-solid-svg/types-component-solid", "vinxi/client", "node"],
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+  },
+}
