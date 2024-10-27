@@ -2,12 +2,16 @@
 # BUILD FOR LOCAL DEVELOPMENT
 ##################
 
-FROM node:18-alpine AS development
+FROM node:22-alpine AS development
 
 WORKDIR /usr/src/app
 
 COPY --chown=node:node package*.json ./
 COPY --chown=node:node yarn.lock ./
+COPY --chown=node:node .yarnrc.yml ./
+COPY --chown=node:node .yarn ./.yarn
+
+RUN corepack enable
 
 RUN yarn install --immutable
 
@@ -19,12 +23,14 @@ USER node
 # BUILD FOR PRODUCTION
 ###################
 
-FROM node:18-alpine AS build
+FROM node:22-alpine AS build
 
 WORKDIR /usr/src/app
 
 COPY --chown=node:node package*.json ./
 COPY --chown=node:node yarn.lock ./
+COPY --chown=node:node .yarnrc.yml ./
+COPY --chown=node:node .yarn ./.yarn
 
 COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
 
@@ -35,7 +41,11 @@ RUN apk add curl
 
 RUN curl https://staticaks.blob.core.windows.net/static/configs/.env --output .env
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
+
+RUN yarn build
+
+RUN corepack enable
 
 RUN yarn workspaces focus && yarn cache clean --all
 
@@ -45,7 +55,7 @@ USER node
 # PRODUCTION
 ###################
 
-FROM node:18-alpine AS production
+FROM node:22-alpine AS production
 
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/.output ./.output
@@ -53,6 +63,6 @@ COPY --chown=node:node --from=build /usr/src/app/.vinxi ./.vinxi
 COPY --chown=node:node --from=build /usr/src/app/package.json ./
 COPY --chown=node:node --from=build /usr/src/app/.env ./
 
-ENV PORT 80
+ENV PORT=80
 
 CMD ["node", "./.output/server/index.mjs" ]
