@@ -1,8 +1,7 @@
 'use server';
 import { Authorization } from '~/app/helpers/token';
 
-import { redirect } from '@solidjs/router';
-import { SessionData, getEvent, getRequestURL, useSession } from 'vinxi/http';
+import { SessionData, useSession } from 'vinxi/http';
 
 export async function getSession() {
   try {
@@ -13,17 +12,6 @@ export async function getSession() {
   } catch (error) {
     return undefined;
   }
-}
-
-export async function requireUserId(redirectTo?: string) {
-  const session = await getSession();
-  const userId = session?.data?.userId;
-  if (!userId || typeof userId !== 'string') {
-    const redirectPath = redirectTo || getRequestURL(getEvent()!).pathname;
-    const searchParams = new URLSearchParams([['redirectTo', redirectPath]]);
-    throw redirect(`/login?${searchParams}`);
-  }
-  return userId;
 }
 
 export async function clearSession() {
